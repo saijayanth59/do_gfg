@@ -7,10 +7,9 @@ from utils import wait_and_act, get_X_credentials
 def login_x(driver):
     gmail, username, password = get_X_credentials()
     print("Opening X.com...")
-    driver.get("https://x.com/")
+    driver.get(X["login_link"])
 
-    wait_and_act(driver, X["signin"])
-
+    wait_and_act(driver, X["signin_btn"])
 
     wait_and_act(driver, X["gmail"],
                  action="send_keys", value=gmail)
@@ -23,6 +22,6 @@ def login_x(driver):
     wait_and_act(driver, X["password"],
                  action="send_keys", value=password)
 
-    wait_and_act(driver, X["login"])
+    wait_and_act(driver, X["login_btn"])
 
     print("Login attempt completed.")
